@@ -4,7 +4,8 @@ const connection = mysql.createConnection({
     host     : 'sql.freedb.tech',
     user     : 'freedb_roote',
     password : 'CmxwKJ35y@#R@B*',
-    database : 'freedb_login_node_curso'
+    database : 'freedb_login_node_curso',
+    port     : 3306  // Agregar el puerto aquí
 });
 
 connection.connect((error) => {
