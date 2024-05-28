@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host     : 'sql104.infinityfree.com',
-    user     : 'if0_36633976',
-    password : 'sSrWeqhvc8sDo',
-    database : 'if0_36633976_login_node_curso'
+    host     : 'sql.freedb.tech',
+    user     : 'freedb_roote',
+    password : 'CmxwKJ35y@#R@B*',
+    database : 'freedb_login_node_curso'
 });
 
 connection.connect((error) => {
