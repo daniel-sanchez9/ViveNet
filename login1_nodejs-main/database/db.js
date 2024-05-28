@@ -2,10 +2,10 @@
 const mysql = require('mysql');
 const connection = mysql.createConnection({
     //Con variables de entorno
-    host     : 'localhost',
-    user     : 'daniel',
-    password : 'admin',
-    database : 'login_node_curso'
+    host     : 'sql104.infinityfree.com',
+    user     : 'if0_36633976',
+    password : 'sSrWeqhvc8sDo',
+    database : 'if0_36633976_login_node_curso'
 });
 
 connection.connect((error)=>{
