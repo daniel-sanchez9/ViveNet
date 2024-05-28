@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="resources/css/style.css">
-    <title>Register</title>
+    <link rel="stylesheet" href="resources/css/stylelogin.css">
+    <title>Registro</title>
 </head>
 <body>
     <div class="register-form">
-		<h1>Form Registration</h1>
-		<form action="/register" method="POST">
+        <h2>Formulario de Registro</h2>
+        <form action="/register" method="POST" onsubmit="return validateForm()">
             <label for="user">User</label>
-                <input type="text" name="user" required tabindex="1" autofocus>            
-            <label for="user">Full Name</label>
-                <input type="text" name="name" required tabindex="2">
+            <input type="text" name="user" required tabindex="1" autofocus>            
+            <label for="email">Correo Electrónico</label>
+            <input type="email" name="email" id="email" required tabindex="2">
+            <span id="email-error" style="display: none; color: red;">Por favor, ingrese un correo electrónico válido.</span>
             
             <label for="rol">Rol</label>                          
             <select id="rol" name="rol" class="select-css" tabindex="3">
                 <option value="admin" selected>Admin</option>
                 <option value="data entry">Data Entry</option>                    
             </select>
-             <br> 
+            <br> 
             <label for="pass">Password</label>
-			    <input type="password" name="pass" required tabindex="4">
+            <input type="password" name="pass" required tabindex="4">
             <div style="display: inline;">             
             <a href="/" class="btn-cancel">Cancel</a><input type="submit" class="btn-save" value="Save">           
             </div>
-		</form>		
-	</div>
+        </form>     
+    </div>
 
-    		
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <% if (typeof alert != "undefined")  { %>
@@ -46,6 +46,21 @@
  })
  </script>
 <% } %>
- </div>
+
+<script>
+function validateForm() {
+    var email = document.getElementById('email').value;
+    var emailError = document.getElementById('email-error');
+    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!regex.test(email)) {
+        emailError.style.display = 'block';
+        return false;
+    } else {
+        emailError.style.display = 'none';
+        return true;
+    }
+}
+</script>
 </body>
 </html>

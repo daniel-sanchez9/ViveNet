@@ -104,23 +104,28 @@ app.post('/guardarreservasalon', async (req, res) => {
         }
     });
 });
-
 app.post('/certifcadoresidenciapost', async (req, res) => {
-    console.log(req.body); // Imprimir req.body en la consola del servidor
+    console.log(req.body);
 
-    const nombre = req.body.nombres; // Cambiado de 'nombre' a 'nombres'
+    const nombres = req.body.nombres;
     const torre = req.body.torre;
     const apartamento = req.body.apartamento;
     const fecha = req.body.fecha;
-    const mensaje = req.body.mensaje;
+    const fecha_generacion = req.body.fecha_generacion;
 
-    // Aquí debes insertar los datos en la base de datos
-    connection.query('INSERT INTO certificado_de_residencia SET ?', { nombres: nombre, torre, apartamento, fecha, mensaje }, async (error, results, fields) => {
+    connection.query('INSERT INTO certificado_de_residencia SET ?', 
+    { 
+        nombres: nombres, 
+        torre: torre, 
+        apartamento: apartamento, 
+        fecha: fecha, 
+        fecha_generacion: fecha_generacion 
+    }, 
+    async (error, results, fields) => {
         if (error) {
-            console.log(error); 
+            console.log(error);
             res.status(500).send('Error al guardar la solicitud de certificado de residencia en la base de datos');
         } else {
-            res.status(200).send('Solicitud de certificado de residencia guardada exitosamente');
             // Redireccionar a la página de inicio después de 5 segundos
             setTimeout(() => {
                 res.redirect('/');
@@ -128,6 +133,7 @@ app.post('/certifcadoresidenciapost', async (req, res) => {
         }
     });
 });
+
 
 
 
